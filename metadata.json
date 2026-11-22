@@ -1,0 +1,8 @@
+{
+  "name": "SkySync",
+  "description": "Intelligent Weather-Based Activity Recommendation System powered by mathematical suitability modeling and three-state differential equations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

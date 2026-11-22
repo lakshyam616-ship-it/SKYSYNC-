@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #090a1a;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #090a1a;
+    overflow-x: hidden;
+  }
+
+  @keyframes skysync-rain-fall {
+    0% {
+      transform: translate3d(0, -10vh, 0) rotate(10deg);
+    }
+    100% {
+      transform: translate3d(-45px, 115vh, 0) rotate(10deg);
+    }
+  }
+
+  @keyframes skysync-snow-fall {
+    0% {
+      transform: translate3d(0, -10vh, 0);
+    }
+    50% {
+      transform: translate3d(22px, 52vh, 0);
+    }
+    100% {
+      transform: translate3d(-12px, 112vh, 0);
+    }
+  }
+
+  .skysync-rain-streak {
+    animation-name: skysync-rain-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+
+  .skysync-snowflake {
+    animation-name: skysync-snow-fall;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skysync-rain-streak,
+    .skysync-snowflake {
+      animation: none;
+      display: none;
+    }
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #090a1a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1f2347;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2e3468;
+  }
+}
+
+/* Remove default number input spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Sleek indigo-cyan range slider */
+input[type="range"].skysync-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.09);
+  outline: none;
+}
+
+input[type="range"].skysync-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  border: 2px solid #0b0d21;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.45);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].skysync-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+input[type="range"].skysync-slider::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  border: 2px solid #0b0d21;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.45);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
